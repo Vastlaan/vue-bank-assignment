@@ -1,0 +1,18 @@
+{
+  "name": "@vastlaan/abn-vue",
+  "version": "1.0.0",
+  "description": "ABN AMRO Vue Assignment",
+  "main": "apps/vue-bank-client/main.ts",
+  "scripts": {
+    "app:dev": "pnpm -F @vatlaan/abn-vue-client dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vastlaan/vue-bank-assignment.git"
+  },
+  "author": "Michal Antczak",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Vastlaan/vue-bank-assignment.git/issues"
+  }
+}
