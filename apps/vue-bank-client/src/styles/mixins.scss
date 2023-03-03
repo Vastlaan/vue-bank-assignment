@@ -1,0 +1,31 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == "l" {
+    @media screen and (max-width: 1024px) {
+      @content;
+    }
+  }
+  @if $breakpoint == "m" {
+    @media screen and (max-width: 769px) {
+      @content;
+    }
+  }
+  @if $breakpoint == "s" {
+    @media screen and (max-width: 481px) {
+      @content;
+    }
+  }
+}
+
+@mixin flexColumnCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin navigationItemPadding {
+  padding: 1rem 1.6rem;
+
+  @include respond("s") {
+    padding: 1rem;
+  }
+}

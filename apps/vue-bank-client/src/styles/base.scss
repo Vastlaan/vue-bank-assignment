@@ -1,0 +1,19 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+html{
+  font-size: 75%; // 1rem = 12px
+  color: $color-text;
+  background-color: $color-bg;
+  font-family: $font-primary;
+
+  @include respond('l'){
+    font-size: 62.5%; // 1rem = 10px
+  }
+}

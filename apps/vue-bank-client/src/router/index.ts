@@ -1,21 +1,35 @@
-import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '../views/HomeView.vue'
+import ContactView from '../views/ContactView.vue'
+import SettingsView from '../views/SettingsView.vue'
 
 export const ROUTE_NAMES = {
-  HOME: "home",
-};
+  HOME: 'home',
+  SETTINGS: 'settings',
+  CONTACT: 'contact'
+}
 
 export const routes = [
   {
-    path: "/",
+    path: '/',
     name: ROUTE_NAMES.HOME,
-    component: HomeView,
+    component: HomeView
   },
-];
+  {
+    path: '/settings',
+    name: ROUTE_NAMES.SETTINGS,
+    component: SettingsView
+  },
+  {
+    path: '/contact',
+    name: ROUTE_NAMES.CONTACT,
+    component: ContactView
+  }
+]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
-});
+  routes
+})
 
-export default router;
+export default router
