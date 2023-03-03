@@ -4,7 +4,9 @@
   "description": "ABN AMRO Vue Assignment",
   "main": "apps/vue-bank-client/main.ts",
   "scripts": {
-    "app:dev": "pnpm -F @vatlaan/abn-vue-client dev"
+    "app:dev": "pnpm -F @vatlaan/abn-vue-client dev",
+    "server:start": "pnpm -F @vastlaan/abn-server start",
+    "dev": "concurrently \"pnpm run server:start\" \"pnpm run app:dev\""
   },
   "repository": {
     "type": "git",
@@ -14,5 +16,8 @@
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/Vastlaan/vue-bank-assignment.git/issues"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
   }
 }
