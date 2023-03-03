@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { ButtonAction } from '@/components/designSystem/ButtonSecondary.vue'
-interface HeaderPrimaryProps {
+export interface HeaderPrimaryProps {
   description: string
   title: string
   action: ButtonAction

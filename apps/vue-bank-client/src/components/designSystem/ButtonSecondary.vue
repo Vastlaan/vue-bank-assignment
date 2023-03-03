@@ -3,7 +3,7 @@ export interface ButtonAction {
   url?: string
   callback?: (args: { [key: string]: any }) => void
 }
-interface ButtonSecondaryProps {
+export interface ButtonSecondaryProps {
   action: ButtonAction
   type?: 'submit' | 'button'
   title: string
@@ -16,7 +16,7 @@ const props = defineProps<ButtonSecondaryProps>()
 </script>
 
 <template>
-  <button v-if="!!action?.callback" :type="type">{{ props.title }}</button>
+  <button v-if="!!action?.callback" :type="type" @click="action.callback">{{ props.title }}</button>
   <RouterLink v-if="!!action?.url" :to="action.url">{{ props.title }}</RouterLink>
 </template>
 
