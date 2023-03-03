@@ -29,3 +29,17 @@
     padding: 1rem;
   }
 }
+@mixin includeColorClasses {
+  .color-primary {
+    color: $color-primary;
+  }
+  .color-secondary {
+    color: $color-secondary;
+  }
+  .color-white {
+    color: $color-bg;
+  }
+  .color-error {
+    color: $color-error;
+  }
+}

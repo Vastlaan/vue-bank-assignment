@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import LinkWithIcon from '@/components/designSystem/LinkWithIcon.vue'
+const navigationLinks = [
+  { name: 'Accounts', to: '/accounts', icon: 'fa-credit-card' },
+  { name: 'Settings', to: '/settings', icon: 'fa-cog' },
+  { name: 'Contact', to: '/contact', icon: 'fa-headset' }
+]
 </script>
 
 <template>
   <div class="links">
     <LinkWithIcon
-      name="Settings"
-      to="/settings"
-      icon="fa-cog"
-      applyActiveClass
-      hideTextWhenShrink
-    />
-    <LinkWithIcon
-      name="Contact"
-      to="/contact"
-      icon="fa-headset"
+      v-for="link of navigationLinks"
+      :key="link.to"
+      :name="link.name"
+      :to="link.to"
+      :icon="link.icon"
       applyActiveClass
       hideTextWhenShrink
     />

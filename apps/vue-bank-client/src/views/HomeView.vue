@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import HomeHeader from '@/components/HomeHeader.vue'
 </script>
 
 <template>
-  <main>
-    <h1>Home Page</h1>
-  </main>
+  <div>
+    <HomeHeader />
+  </div>
 </template>

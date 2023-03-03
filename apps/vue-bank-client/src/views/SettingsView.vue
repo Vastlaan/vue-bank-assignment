@@ -1,7 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import SettingsHeader from '@/components/SettingsHeader.vue'
+</script>
 
 <template>
-  <main>
-    <h1>Settings Page</h1>
-  </main>
+  <div>
+    <SettingsHeader />
+  </div>
 </template>

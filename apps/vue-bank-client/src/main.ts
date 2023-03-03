@@ -6,11 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import {
   faCog,
   faUser,
-  faHeadset,
   faRightToBracket,
   faRightFromBracket,
+  faHeadset,
   faSpinner,
-  faTriangleExclamation
+  faTriangleExclamation,
+  faCreditCard,
+  faChevronDown,
+  faChevronUp
 } from '@fortawesome/free-solid-svg-icons'
 import '@/styles/base.scss'
 
@@ -23,7 +26,10 @@ library.add(
   faRightFromBracket,
   faHeadset,
   faSpinner,
-  faTriangleExclamation
+  faTriangleExclamation,
+  faCreditCard,
+  faChevronDown,
+  faChevronUp
 )
 
 app.use(router)
