@@ -4,7 +4,8 @@
   "description": "ABN AMRO Vue Assignment",
   "main": "apps/vue-bank-client/main.ts",
   "scripts": {
-    "app:dev": "pnpm -F @vatlaan/abn-vue-client dev",
+    "app:dev": "pnpm -F @vastlaan/abn-vue-client dev",
+    "app:test": "pnpm -F @vastlaan/abn-vue-client test:unit",
     "server:start": "pnpm -F @vastlaan/abn-server start",
     "dev": "concurrently \"pnpm run server:start\" \"pnpm run app:dev\""
   },
