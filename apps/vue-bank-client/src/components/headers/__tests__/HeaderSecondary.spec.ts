@@ -2,14 +2,13 @@ import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { DOMWrapper, mount } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from '@/router'
-import HeaderPrimary from '../headers/HeaderPrimary.vue'
-import type { HeaderPrimaryProps } from '../headers/HeaderPrimary.vue'
+import HeaderSecondary from '../HeaderSecondary.vue'
+import type { HeaderSecondaryProps } from '../HeaderSecondary.vue'
 import findByText from '@/utils/test/findByText'
 
-const defaultProps: HeaderPrimaryProps = {
+const defaultProps: HeaderSecondaryProps = {
   action: { url: '/accounts' },
-  title: 'This is title',
-  description: 'This is the description',
+  text: 'Some header line',
   buttonTitle: 'Go to accounts'
 }
 
@@ -18,8 +17,8 @@ const router = createRouter({
   routes: routes
 })
 
-const getWrapper = (mockProps?: HeaderPrimaryProps) =>
-  mount(HeaderPrimary, {
+const getWrapper = (mockProps?: HeaderSecondaryProps) =>
+  mount(HeaderSecondary, {
     props: mockProps || defaultProps,
     global: {
       plugins: [router]
@@ -34,9 +33,7 @@ describe('HeadingLarge', () => {
   it('properly navigates to url', async () => {
     const push = vi.spyOn(router, 'push')
     const wrapper = getWrapper()
-    expect(wrapper.text()).toContain('This is title')
-    expect(wrapper.text()).toContain('This is the description')
-    expect(wrapper.text()).toContain('Go to accounts')
+    expect(wrapper.text()).toContain('Some header line')
 
     const anchor = (await findByText(
       wrapper,
@@ -50,15 +47,14 @@ describe('HeadingLarge', () => {
   it('properly calls action', async () => {
     const callback = vi.fn()
 
-    const mockProps: HeaderPrimaryProps = {
+    const mockProps: HeaderSecondaryProps = {
       action: { callback },
-      title: 'Another title',
       buttonTitle: 'ButtonTitle',
-      description: 'yet another description'
+      text: 'yet another text'
     }
 
     const wrapper = getWrapper(mockProps)
-    expect(wrapper.text()).toContain('Another title')
+    expect(wrapper.text()).toContain('yet another text')
 
     const button = (await findByText(
       wrapper,
