@@ -2,7 +2,8 @@ import express, { Request, Response, NextFunction } from "express";
 import { json } from "body-parser";
 import cors from "cors";
 import { accounts, transactions } from "./data";
-import { BadRequestError, ConflictError, IError, NotFoundError } from "./error";
+import path from "path";
+import { IError } from "./error";
 
 const app = express();
 app.use(cors());
@@ -48,6 +49,13 @@ function errorHandling(
     message: "Something went wrong",
   });
 }
+
+app.use(express.static("../vue-bank-client/dist"));
+app.get("*", (req, res) => {
+  return res.sendFile(
+    path.resolve(__dirname, "..", "vue-bank-client", "dist", "index.html")
+  );
+});
 
 app.use(errorHandling);
 

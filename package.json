@@ -6,6 +6,7 @@
   "scripts": {
     "app:dev": "pnpm -F @vastlaan/abn-vue-client dev",
     "app:test": "pnpm -F @vastlaan/abn-vue-client test:unit",
+    "app:build": "pnpm -F @vastlaan/abn-vue-client build",
     "server:start": "pnpm -F @vastlaan/abn-server start",
     "dev": "concurrently \"pnpm run server:start\" \"pnpm run app:dev\""
   },
