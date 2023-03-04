@@ -10,7 +10,7 @@ app.use(json());
 
 const PORT = 5011;
 
-app.get("/accounts", (req: Request, res: Response) => {
+app.get("/api/accounts", (req: Request, res: Response) => {
   return res.status(200).json({ data: accounts });
 });
 

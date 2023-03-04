@@ -8,7 +8,7 @@ export default function useAccountsApi() {
 
   async function fetchData() {
     try {
-      const response = await fetch('http://localhost:5000/accounts')
+      const response = await fetch('http://localhost:5000/api/accounts')
       if (!response.ok) {
         loading.value = false
         error.value = 'Something went wrong while fetching the data'

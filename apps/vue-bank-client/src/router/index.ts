@@ -3,12 +3,14 @@ import HomeView from '../views/HomeView.vue'
 import ContactView from '../views/ContactView.vue'
 import AccountsOverview from '../views/AccountsOverview.vue'
 import SettingsView from '../views/SettingsView.vue'
+import AccountDetails from '../views/AccountDetailsView.vue'
 
 export const ROUTE_NAMES = {
   HOME: 'home',
   SETTINGS: 'settings',
   CONTACT: 'contact',
-  ACCOUNTS: 'accounts'
+  ACCOUNTS: 'accounts',
+  ACCOUNTDETAILS: 'accountDetails'
 }
 
 export const routes = [
@@ -21,6 +23,11 @@ export const routes = [
     path: '/accounts',
     name: ROUTE_NAMES.ACCOUNTS,
     component: AccountsOverview
+  },
+  {
+    path: '/accounts/details',
+    name: ROUTE_NAMES.ACCOUNTDETAILS,
+    component: AccountDetails
   },
   {
     path: '/settings',
