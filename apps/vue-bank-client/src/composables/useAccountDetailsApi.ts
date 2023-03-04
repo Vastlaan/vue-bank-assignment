@@ -8,7 +8,7 @@ export default function useTransactionsApi(accountNumber: string | null) {
 
   async function fetchAccountAttributes() {
     try {
-      const response = await fetch(`http://localhost:5011/api/accounts/${accountNumber}`)
+      const response = await fetch(`/api/accounts/${accountNumber}`)
       if (!response.ok) {
         loading.value = false
         error.value = 'Something went wrong while fetching the data'
