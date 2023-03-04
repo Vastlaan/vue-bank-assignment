@@ -22,3 +22,19 @@ export interface AccountGroup {
 export interface AccountGroups {
   accountGroups: AccountGroup[]
 }
+
+export interface Transaction {
+  transactionId: string
+  bookDate: string
+  transactionDateTime: string
+  creditDebitIndicator: 'DEBIT' | 'CREDIT'
+  amount: number
+  counterpartyAccountNumber: string
+  counterpartyName: string
+  description: string
+}
+
+export interface AccountAttributes {
+  accountDetails: Account
+  accountTransactions: Transaction[]
+}

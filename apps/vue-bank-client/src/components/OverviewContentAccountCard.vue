@@ -20,11 +20,7 @@ defineProps<AccountCardProps>()
 
 <style scoped lang="scss">
 .account {
-  padding: 1.9rem;
-  margin: 1.9rem 0;
-  border: 1px solid $color-grey-light;
-  border-radius: 5px;
-  box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+  @include cardStyle;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
