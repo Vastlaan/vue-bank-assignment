@@ -1,12 +1,13 @@
 <script lang="ts">
 import type { Transaction } from '@/types'
+import AccountDetailsTransaction from './AccountDetailsTransaction.vue'
 interface TransactionsProps {
   transactions: Transaction[]
+  currencyCode: string
 }
 </script>
 
 <script setup lang="ts">
-import AccountDetailsTransaction from './AccountDetailsTransaction.vue'
 defineProps<TransactionsProps>()
 </script>
 
@@ -16,6 +17,7 @@ defineProps<TransactionsProps>()
       v-for="transaction in transactions"
       :key="transaction.transactionId"
       :transaction="transaction"
+      :currencyCode="currencyCode"
     />
   </section>
 </template>

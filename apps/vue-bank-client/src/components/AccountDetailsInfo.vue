@@ -1,4 +1,6 @@
 <script lang="ts">
+import getDisplayBalance from '@/utils/getDisplayBalance'
+import OverviewContentAccountButtons from './AccountDetailsButtons.vue'
 interface AccountDetailsInfoProps {
   accountNumber: string
   balance?: number
@@ -8,8 +10,6 @@ interface AccountDetailsInfoProps {
 </script>
 
 <script lang="ts" setup>
-import getDisplayBalance from '@/utils/getDisplayBalance'
-import OverviewContentAccountButtons from './AccountDetailsButtons.vue'
 const props = defineProps<AccountDetailsInfoProps>()
 const displayedBalance = getDisplayBalance({
   balance: props.balance,

@@ -1,4 +1,5 @@
 <script lang="ts">
+import ButtonToggle from './designSystem/ButtonToggle.vue'
 interface AccountButtonsProps {
   buttonTitle: string
   action: () => void
@@ -6,8 +7,8 @@ interface AccountButtonsProps {
   icon: string
 }
 </script>
+
 <script lang="ts" setup>
-import ButtonToggle from './designSystem/ButtonToggle.vue'
 defineProps<AccountButtonsProps>()
 </script>
 

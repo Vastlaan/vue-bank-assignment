@@ -1,12 +1,12 @@
 <script lang="ts">
 import type { Account } from '@/types'
+import OverviewAccount from './OverviewContentAccount.vue'
 interface AccountsProps {
   accounts: Account[]
 }
 </script>
 
 <script setup lang="ts">
-import OverviewAccount from './OverviewContentAccount.vue'
 defineProps<AccountsProps>()
 </script>
 

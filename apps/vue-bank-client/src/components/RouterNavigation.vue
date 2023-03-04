@@ -1,11 +1,11 @@
 <script lang="ts">
+import LinkWithIcon from './designSystem/LinkWithIcon.vue'
 interface RouterNavigationProps {
   url: string
   name: string
 }
 </script>
 <script setup lang="ts">
-import LinkWithIcon from './designSystem/LinkWithIcon.vue'
 defineProps<RouterNavigationProps>()
 </script>
 

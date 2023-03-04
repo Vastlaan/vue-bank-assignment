@@ -1,9 +1,5 @@
 <script lang="ts">
 import type { Account } from '@/types'
-type AccountKey = keyof Account
-</script>
-
-<script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import useAccountDetailsApi from '@/composables/useAccountDetailsApi'
@@ -15,8 +11,13 @@ import HeadingNormalVue from './designSystem/HeadingNormal.vue'
 import capitalizeFirstLetter from '@/utils/capitalizeFirstLetter'
 import AccountDetailsTransactions from './AccountDetailsTransactions.vue'
 
+type AccountKey = keyof Account
+</script>
+
+<script setup lang="ts">
 const route = useRoute()
 const isDetailOpen = ref(false)
+
 function showDetails() {
   isDetailOpen.value = true
 }
@@ -26,6 +27,7 @@ function hideDetails() {
 
 const accountNumber = route.query.accountNumber as string
 const { loading, error, accountAttributes } = useAccountDetailsApi(accountNumber)
+
 const accountDetails = computed(() => accountAttributes.value?.accountDetails)
 const accountTransactions = computed(() => accountAttributes.value?.accountTransactions)
 const accountExactInfo = computed(() => {
@@ -68,7 +70,11 @@ const accountExactInfo = computed(() => {
       :hideDetails="hideDetails"
       :accountDetails="accountExactInfo"
     />
-    <AccountDetailsTransactions v-if="accountTransactions" :transactions="accountTransactions" />
+    <AccountDetailsTransactions
+      v-if="accountTransactions && accountDetails"
+      :transactions="accountTransactions"
+      :currencyCode="accountDetails.currencyCode"
+    />
   </main>
 </template>
 

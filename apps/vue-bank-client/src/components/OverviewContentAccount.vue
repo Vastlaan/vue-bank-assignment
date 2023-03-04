@@ -1,16 +1,14 @@
 <script lang="ts">
 import type { Account } from '@/types'
 import getDisplayBalance from '@/utils/getDisplayBalance'
+import router from '@/router'
+import OverviewContentAccountCard from './OverviewContentAccountCard.vue'
 interface AccountProps {
   account: Account
 }
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import router from '@/router'
-import OverviewContentAccountCard from './OverviewContentAccountCard.vue'
-
 const props = defineProps<AccountProps>()
 const displayedBalance = getDisplayBalance({
   balance: props?.account?.balance || props?.account?.bookBalance,
