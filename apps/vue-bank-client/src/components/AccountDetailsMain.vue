@@ -13,6 +13,7 @@ import AccountDetailsInfo from './AccountDetailsInfo.vue'
 import AccountDetailsInfoExpanded from './AccountDetailsInfoExpanded.vue'
 import HeadingNormalVue from './designSystem/HeadingNormal.vue'
 import capitalizeFirstLetter from '@/utils/capitalizeFirstLetter'
+import AccountDetailsTransactions from './AccountDetailsTransactions.vue'
 
 const route = useRoute()
 const isDetailOpen = ref(false)
@@ -67,6 +68,7 @@ const accountExactInfo = computed(() => {
       :hideDetails="hideDetails"
       :accountDetails="accountExactInfo"
     />
+    <AccountDetailsTransactions v-if="accountTransactions" :transactions="accountTransactions" />
   </main>
 </template>
 

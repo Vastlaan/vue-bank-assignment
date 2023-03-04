@@ -63,14 +63,14 @@ describe('OverviewContent', () => {
     const wrapper = getWrapper()
     expect(wrapper.text()).toContain('Please wait ...')
   })
-  it('renders properly when loading data', async () => {
+  it('renders properly with account groups', async () => {
     vi.spyOn(useAccountsApi, 'default').mockReturnValue({
       loading: ref(false),
       error: ref(null),
       accountGroups: ref([mockAccountGroup])
     })
     const wrapper = getWrapper()
-    console.log({ w: wrapper.text() })
+    expect(wrapper.text()).toContain('Current Accounts')
     expect(wrapper.text()).toContain('NL18ABNA5476393838')
     expect(wrapper.text()).toContain('7500.39')
     expect(wrapper.text()).toContain('John Doe')
