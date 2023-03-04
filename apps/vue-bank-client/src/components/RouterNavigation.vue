@@ -10,13 +10,13 @@ defineProps<RouterNavigationProps>()
 </script>
 
 <template>
-  <div class="overview">
+  <div class="routerNavigation">
     <LinkWithIcon :name="name" :to="url" icon="fa-chevron-left" />
   </div>
 </template>
 
 <style scoped lang="scss">
-.overview {
+.routerNavigation {
   background-color: $color-grey-light;
   display: flex;
 
