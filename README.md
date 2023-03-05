@@ -8,16 +8,16 @@
 
 - [Installation:](#Installation)
 - [Workspaces:](#Workspaces)
-  - [1. VueBank Client](#1-insights-client)
-  - [2. Server](#2-insights-mfe-playground)
+  - [1. VueBank Client](#1-VueBank Client)
+  - [2. Server](#2-Server)
 
 ## Installation:
 
 #### Note:
 
-**This instruction assumes you have `node` and `npm` already installed**
+**This instruction assumes you have `node` and `npm` already installed.**
+**The recommended version of `node` is at least `16.0.0`.**
 **This repository uses `pnpm` package manager. You need the `pnpm` to be installed globally on your machine.**
-**The recommended version of `node` is at least `16.0.0`**
 
 1. To install `pnpm` run:
 
