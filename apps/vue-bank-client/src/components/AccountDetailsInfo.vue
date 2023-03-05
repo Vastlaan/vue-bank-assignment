@@ -2,7 +2,7 @@
 import TextNormal from './designSystem/TextNormal.vue'
 import getDisplayBalance from '@/utils/getDisplayBalance'
 import OverviewContentAccountButtons from './AccountDetailsButtons.vue'
-interface AccountDetailsInfoProps {
+export interface AccountDetailsInfoProps {
   accountNumber: string
   balance?: number
   currencyCode: string

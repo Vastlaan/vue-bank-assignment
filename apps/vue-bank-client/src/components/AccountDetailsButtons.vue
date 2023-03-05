@@ -3,7 +3,6 @@ import ButtonToggle from './designSystem/ButtonToggle.vue'
 interface AccountButtonsProps {
   buttonTitle: string
   action: () => void
-  url: string
   icon: string
 }
 </script>
