@@ -1,3 +1,3 @@
-# Vue Bank - ABN AMRO assignment app
+# Vue Bank - assignment app
 
 ##

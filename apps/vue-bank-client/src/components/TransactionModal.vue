@@ -9,6 +9,9 @@ interface ModalProps {
 <script setup lang="ts">
 import type { Transaction } from '@/types'
 import { computed } from 'vue'
+import HeadingLarge from './designSystem/HeadingLarge.vue'
+import TextNormal from './designSystem/TextNormal.vue'
+import TransactionModalItem from './TransactionModalItem.vue'
 
 const props = defineProps<ModalProps>()
 const dateTime = computed(() => {
@@ -26,21 +29,12 @@ const dateTime = computed(() => {
         </button>
       </div>
       <div class="main">
-        <p class="name">{{ transaction.counterpartyName }}</p>
-        <p class="amount" :class="isAmountPositive ? 'color-primary' : ''">{{ amountDisplay }}</p>
+        <TextNormal :text="transaction.counterpartyName" />
+        <HeadingLarge :text="amountDisplay" :color="isAmountPositive ? 'primary' : 'primaryDark'" />
       </div>
-      <div class="division">
-        <h4>Execution</h4>
-        <p>{{ dateTime }}</p>
-      </div>
-      <div class="division">
-        <h4>From account</h4>
-        <p>{{ transaction.counterpartyAccountNumber }}</p>
-      </div>
-      <div class="division">
-        <h4>Description</h4>
-        <p>{{ transaction.description }}</p>
-      </div>
+      <TransactionModalItem :text="dateTime" label="Execution" />
+      <TransactionModalItem :text="transaction.counterpartyAccountNumber" label="From account" />
+      <TransactionModalItem :text="transaction.description" label="Description" />
     </div>
   </div>
 </template>
@@ -56,13 +50,13 @@ const dateTime = computed(() => {
   align-items: center;
 }
 .inner {
-  min-width: 70rem;
+  width: 65rem;
   padding: 2.7rem 2.7rem 4.7rem 2.7rem;
   background-color: $color-bg;
-  border: 2px solid $color-primary;
+  border: 2px solid $color-primary-dark;
 
   @include respond('m') {
-    min-width: 45rem;
+    width: 45rem;
   }
 }
 .close {
@@ -86,27 +80,9 @@ const dateTime = computed(() => {
   flex-direction: column;
   align-items: center;
   border-bottom: 1px solid $color-primary;
-}
-.amount {
-  font-size: 2.7rem;
-  color: $color-primary;
-}
-.name {
-  font-size: 1.6rem;
-  margin-bottom: 0.6rem;
-}
-.division {
-  padding: 1.9rem 0;
-  border-bottom: 1px solid $color-grey-light;
 
-  h4 {
-    margin-bottom: 0.6rem;
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: $color-primary-dark;
-  }
-  p {
-    font-size: 1.4rem;
+  & > p {
+    margin-bottom: 0.8rem;
   }
 }
 </style>

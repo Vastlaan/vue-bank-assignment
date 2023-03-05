@@ -1,6 +1,7 @@
 <script lang="ts">
 import { computed, ref } from 'vue'
 import TransactionModal from './TransactionModal.vue'
+import TextNormal from './designSystem/TextNormal.vue'
 import type { Transaction } from '@/types'
 interface TransactionProps {
   transaction: Transaction
@@ -16,7 +17,6 @@ function closeModal() {
   isModalOpen.value = false
 }
 function openTransactionDetailsModal() {
-  console.log('open modal')
   isModalOpen.value = true
 }
 const isAmountPositive = computed(() => props.transaction.creditDebitIndicator === 'CREDIT')
@@ -36,8 +36,8 @@ const amountDisplay = computed(() => {
     @click="openTransactionDetailsModal"
     @keydown="openTransactionDetailsModal"
   >
-    <p>{{ transaction.counterpartyName }}</p>
-    <p :class="isAmountPositive ? 'color-primary' : undefined">{{ amountDisplay }}</p>
+    <TextNormal :text="transaction.counterpartyName" />
+    <TextNormal :text="amountDisplay" :color="isAmountPositive ? 'primary' : undefined" />
   </div>
   <Teleport to="#app">
     <TransactionModal
@@ -59,10 +59,6 @@ const amountDisplay = computed(() => {
   border-bottom: 1px solid lighten($color-grey-normal, 20%);
   transition: all 0.2s;
   cursor: pointer;
-
-  p {
-    font-size: 1.6rem;
-  }
 
   &:hover {
     background-color: $color-grey-light;

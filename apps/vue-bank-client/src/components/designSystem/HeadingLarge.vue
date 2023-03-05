@@ -1,5 +1,7 @@
 <script lang="ts">
 import type { Color } from '@/utils/getColorClass'
+import { computed } from 'vue'
+import getColorClass from '@/utils/getColorClass'
 export interface HeadingProps {
   text: string
   color?: Color
@@ -7,13 +9,12 @@ export interface HeadingProps {
 </script>
 
 <script setup lang="ts">
-import getColorClass from '@/utils/getColorClass'
 const props = defineProps<HeadingProps>()
-const color = getColorClass(props.color)
+const displayColor = computed(() => getColorClass(props.color))
 </script>
 
 <template>
-  <h1 :class="color">{{ text }}</h1>
+  <h1 :class="[displayColor.value]">{{ text }}</h1>
 </template>
 
 <style scoped lang="scss">
