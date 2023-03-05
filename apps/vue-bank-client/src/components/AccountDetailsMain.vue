@@ -1,6 +1,5 @@
 <script lang="ts">
-import type { Account } from '@/types'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import useAccountDetailsApi from '@/composables/useAccountDetailsApi'
 import LoadingSpinner from './designSystem/LoadingSpinner.vue'
@@ -8,10 +7,7 @@ import ErrorMessage from './designSystem/ErrorMessage.vue'
 import AccountDetailsInfo from './AccountDetailsInfo.vue'
 import AccountDetailsInfoExpanded from './AccountDetailsInfoExpanded.vue'
 import HeadingNormal from './designSystem/HeadingNormal.vue'
-import capitalizeFirstLetter from '@/utils/capitalizeFirstLetter'
 import AccountDetailsTransactions from './AccountDetailsTransactions.vue'
-
-type AccountKey = keyof Account
 </script>
 
 <script setup lang="ts">
@@ -26,28 +22,8 @@ function hideDetails() {
 }
 
 const accountNumber = route.query.accountNumber as string
-const { loading, error, accountAttributes } = useAccountDetailsApi(accountNumber)
-
-const accountDetails = computed(() => accountAttributes.value?.accountDetails)
-const accountTransactions = computed(() => accountAttributes.value?.accountTransactions)
-const accountExactInfo = computed(() => {
-  if (accountDetails.value) {
-    const keys = Object.keys(accountDetails.value) as Array<AccountKey>
-    const details = keys
-      .map((item) => {
-        if (!['bookBalance', 'balance', 'accountNumber'].includes(item)) {
-          return {
-            label: capitalizeFirstLetter(item.replace(/([a-z])([A-Z])/g, '$1 $2')),
-            value: accountDetails.value ? accountDetails.value[`${item}`] : ''
-          }
-        }
-      })
-      .filter((detail) => detail !== undefined) as { label: string; value: string }[]
-    return details
-  } else {
-    return []
-  }
-})
+const { loading, error, accountDetails, accountTransactions, accountExactInfo } =
+  useAccountDetailsApi(accountNumber)
 </script>
 
 <template>

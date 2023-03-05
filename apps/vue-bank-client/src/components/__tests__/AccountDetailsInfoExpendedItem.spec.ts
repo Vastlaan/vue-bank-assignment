@@ -14,7 +14,7 @@ const getWrapper = () =>
     props: defaultProps
   })
 describe('AccountDetailsInfoExpandedItem', () => {
-  it('renders properly and navigates to /account', async () => {
+  it('renders properly', async () => {
     const wrapper = getWrapper()
     expect(wrapper.text()).toContain('Saturday: 1000')
   })

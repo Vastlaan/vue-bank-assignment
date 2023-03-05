@@ -19,7 +19,7 @@ const getWrapper = () =>
     }
   })
 describe('AccountDetailsButtons', () => {
-  it('renders properly and navigates to /account', async () => {
+  it('renders properly and calls the action when clicked', async () => {
     const wrapper = getWrapper()
 
     const button = (await findByText(

@@ -31,10 +31,16 @@ describe('useAccountDetailsApi', () => {
     await nextTick()
     await nextTick()
 
-    expect(result.accountAttributes.value).toStrictEqual({
-      accountDetails: mockAccountDetails,
-      accountTransactions: []
-    })
+    expect(result.accountDetails.value).toStrictEqual(mockAccountDetails)
+    expect(result.accountExactInfo.value).toStrictEqual([
+      { label: 'Account Number Type', value: 'IBAN' },
+      { label: 'Product Name', value: 'Current Account' },
+      { label: 'Currency Code', value: 'EUR' },
+      { label: 'Holder Name', value: 'John Doe' },
+      { label: 'Bank Country Code', value: 'BE' },
+      { label: 'Bank Identifier Code', value: 'ZYABBE20' }
+    ])
+    expect(result.accountTransactions.value).toStrictEqual([])
   })
   it('returns error state when response fails', async () => {
     mockFetch.mockResolvedValue(fetchResponseError())

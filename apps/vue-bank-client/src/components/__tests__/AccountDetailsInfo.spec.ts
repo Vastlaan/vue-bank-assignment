@@ -20,7 +20,7 @@ const getWrapper = () =>
     }
   })
 describe('AccountDetailsInfo', () => {
-  it('renders properly and navigates to /account', async () => {
+  it('renders properly and calls the action when clicked', async () => {
     const wrapper = getWrapper()
 
     expect(wrapper.text()).toContain('Some account number')
