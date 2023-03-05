@@ -113,8 +113,8 @@ export const transactions = [
     transactions: [
       {
         transactionId: "193466467514933.040002",
-        bookDate: "2021- 02- 28",
-        transactionDateTime: "2021- 02- 28T20:23:00Z",
+        bookDate: "2021-02-28",
+        transactionDateTime: "2021-02-28T20:23:00Z",
         creditDebitIndicator: "DEBIT",
         amount: 500,
         counterpartyAccountNumber: "NL72ABNA4416709382",
@@ -123,8 +123,8 @@ export const transactions = [
       },
       {
         transactionId: "193441320065145.040002",
-        bookDate: "2021- 01- 31",
-        transactionDateTime: "2021- 02- 31T20:23:00Z",
+        bookDate: "2021-01-31",
+        transactionDateTime: "2021-02-31T20:23:00Z",
         creditDebitIndicator: "DEBIT",
         amount: 250,
         counterpartyAccountNumber: "NL72ABNA4416709382",
@@ -133,8 +133,8 @@ export const transactions = [
       },
       {
         transactionId: "193679679615204.040002",
-        bookDate: "2021- 01- 08",
-        transactionDateTime: "2021- 01- 08T04:13:00Z",
+        bookDate: "2021-01-08",
+        transactionDateTime: "2021-01-08T04:13:00Z",
         creditDebitIndicator: "DEBIT",
         amount: 105.18,
         counterpartyAccountNumber: "NL44INGB4133227913",
@@ -143,8 +143,8 @@ export const transactions = [
       },
       {
         transactionId: "193605509101484.030002",
-        bookDate: "2021- 01- 04",
-        transactionDateTime: "2021- 01- 01T00:24:00Z",
+        bookDate: "2021-01-04",
+        transactionDateTime: "2021-01-01T00:24:00Z",
         creditDebitIndicator: "DEBIT",
         amount: 10.0,
         counterpartyAccountNumber: "NL56RABO9108061688",
@@ -153,7 +153,7 @@ export const transactions = [
       },
       {
         transactionId: "193594294273392.040003",
-        bookDate: "2020- 12- 31",
+        bookDate: "2020-12-31",
         transactionDateTime: "2020-12-31T20:23:00Z",
         creditDebitIndicator: "CREDIT",
         amount: 24.0,
