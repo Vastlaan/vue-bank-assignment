@@ -1,4 +1,9 @@
 <script lang="ts">
+import type { Transaction } from '@/types'
+import getDateFromTimeString from '@/utils/getDateFromTimeString'
+import HeadingLarge from './designSystem/HeadingLarge.vue'
+import TextNormal from './designSystem/TextNormal.vue'
+import TransactionModalItem from './TransactionModalItem.vue'
 interface ModalProps {
   closeModal: () => void
   transaction: Transaction
@@ -7,16 +12,8 @@ interface ModalProps {
 }
 </script>
 <script setup lang="ts">
-import type { Transaction } from '@/types'
-import { computed } from 'vue'
-import HeadingLarge from './designSystem/HeadingLarge.vue'
-import TextNormal from './designSystem/TextNormal.vue'
-import TransactionModalItem from './TransactionModalItem.vue'
-
 const props = defineProps<ModalProps>()
-const dateTime = computed(() => {
-  return new Date(props.transaction.bookDate).toLocaleDateString()
-})
+const dateTime = getDateFromTimeString(props.transaction.transactionDateTime)
 </script>
 
 <template>

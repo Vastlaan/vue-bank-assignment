@@ -34,7 +34,7 @@ const amountDisplay = computed(() => {
     role="button"
     tabindex="0"
     @click="openTransactionDetailsModal"
-    @keydown="openTransactionDetailsModal"
+    @keydown.enter="openTransactionDetailsModal"
   >
     <TextNormal :text="transaction.counterpartyName" />
     <TextNormal :text="amountDisplay" :color="isAmountPositive ? 'primary' : undefined" />
@@ -56,7 +56,6 @@ const amountDisplay = computed(() => {
   display: flex;
   justify-content: space-between;
   padding: 2.7rem 1.6rem;
-  border-bottom: 1px solid lighten($color-grey-normal, 20%);
   transition: all 0.2s;
   cursor: pointer;
 

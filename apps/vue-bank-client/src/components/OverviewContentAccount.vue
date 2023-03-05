@@ -25,7 +25,7 @@ function navigateToDetailedPage() {
     role="button"
     tabindex="0"
     @click="navigateToDetailedPage"
-    @keydown="navigateToDetailedPage"
+    @keydown.enter="navigateToDetailedPage"
   >
     <OverviewContentAccountCard
       :displayedBalance="displayedBalance"
