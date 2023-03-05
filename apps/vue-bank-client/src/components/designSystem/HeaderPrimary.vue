@@ -9,9 +9,9 @@ export interface HeaderPrimaryProps {
 </script>
 
 <script setup lang="ts">
-import ButtonSecondary from '../designSystem/ButtonSecondary.vue'
-import HeadingLarge from '../designSystem/HeadingLarge.vue'
-import TextNormal from '../designSystem/TextNormal.vue'
+import ButtonSecondary from './ButtonSecondary.vue'
+import HeadingLarge from './HeadingLarge.vue'
+import TextNormal from './TextNormal.vue'
 defineProps<HeaderPrimaryProps>()
 </script>
 

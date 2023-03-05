@@ -8,7 +8,7 @@
 
 - [Installation:](#Installation)
 - [Workspaces:](#Workspaces)
-  - [1. VueBank Client](#1-VueBank Client)
+  - [1. VueBank](#1-VueBank)
   - [2. Server](#2-Server)
 
 ## Installation:
@@ -37,7 +37,7 @@
 
 ## Workspaces:
 
-### 1. VueBank Client
+### 1. VueBank
 
 VueBank Client - this is the actual front-end layer of the application. It is written in `Vue` and `typescript`.
 

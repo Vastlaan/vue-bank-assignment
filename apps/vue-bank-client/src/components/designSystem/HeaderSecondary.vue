@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { ButtonAction } from '@/components/designSystem/ButtonSecondary.vue'
+import type { ButtonAction } from './ButtonSecondary.vue'
 export interface HeaderSecondaryProps {
   text: string
   buttonTitle: string
@@ -8,8 +8,8 @@ export interface HeaderSecondaryProps {
 </script>
 
 <script setup lang="ts">
-import ButtonSecondary from '../designSystem/ButtonSecondary.vue'
-import HeadingLarge from '../designSystem/HeadingLarge.vue'
+import ButtonSecondary from './ButtonSecondary.vue'
+import HeadingLarge from './HeadingLarge.vue'
 defineProps<HeaderSecondaryProps>()
 </script>
 

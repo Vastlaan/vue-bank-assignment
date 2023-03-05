@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import HeaderPrimary from './headers/HeaderPrimary.vue'
+import HeaderPrimary from './designSystem/HeaderPrimary.vue'
 const title = 'Enter the world of Internet Banking with ABN AMRO'
 const description =
   'Did you know that you can do a lot of your banking yourself online? No need to leave your home. Log in to your accounts here.'
