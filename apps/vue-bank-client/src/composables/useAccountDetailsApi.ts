@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import type { Nullable, AccountAttributes } from '@/types'
 
-export default function useTransactionsApi(accountNumber: string | null) {
+export default function useAccountDetailsApi(accountNumber: string | null) {
   const accountAttributes = ref<Nullable<AccountAttributes>>(null)
   const loading = ref<boolean>(true)
   const error = ref<Nullable<unknown>>(null)
@@ -14,6 +14,7 @@ export default function useTransactionsApi(accountNumber: string | null) {
         error.value = 'Something went wrong while fetching the data'
       } else {
         const responseData = (await response.json()) as { data: AccountAttributes }
+        console.log({ responseData })
         loading.value = false
         accountAttributes.value = responseData.data
       }

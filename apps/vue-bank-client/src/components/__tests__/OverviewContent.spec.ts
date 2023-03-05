@@ -1,28 +1,11 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { DOMWrapper, mount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import OverviewContent from '../OverviewContent.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from '@/router'
-import findByText from '@/utils/test/findByText'
 import * as useAccountsApi from '@/composables/useAccountsApi'
 import { ref } from 'vue'
-
-const mockAccountGroup = {
-  groupName: 'Current Accounts',
-  groupId: 'current',
-  accounts: [
-    {
-      accountNumberType: 'IBAN',
-      accountNumber: 'NL18ABNA5476393838',
-      productName: 'Current Account',
-      currencyCode: 'EUR',
-      holderName: 'John Doe',
-      bankCountryCode: 'BE',
-      bankIdentifierCode: 'ZYABBE20',
-      balance: 7500.39
-    }
-  ]
-}
+import { mockAccountGroup } from '@/utils/test/mocks'
 
 const router = createRouter({
   history: createWebHistory(),

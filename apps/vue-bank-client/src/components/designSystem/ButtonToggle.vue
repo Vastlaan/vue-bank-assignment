@@ -1,5 +1,5 @@
 <script lang="ts">
-interface ButtonSecondaryProps {
+export interface ButtonToggleProps {
   action: (args: { [key: string]: any }) => void
   title: string
   icon?: string
@@ -7,7 +7,7 @@ interface ButtonSecondaryProps {
 </script>
 
 <script setup lang="ts">
-const props = defineProps<ButtonSecondaryProps>()
+const props = defineProps<ButtonToggleProps>()
 </script>
 
 <template>
