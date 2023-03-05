@@ -1,8 +1,8 @@
 # Vue Bank - assignment app
 
-## View live demo at: [https://vuebank.michalantczak.com]:https://vuebank.michalantczak.com
+## View live demo at: https://vuebank.michalantczak.com
 
-1. Navigate to [Acccounts]:https://vuebank.michalantczak.com/accounts - to see core functionality
+1. Navigate to [Acccounts](https://vuebank.michalantczak.com/accounts) - to see core functionality
 
 ## Table of Contents
 
