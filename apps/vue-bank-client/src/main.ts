@@ -14,7 +14,8 @@ import {
   faCreditCard,
   faChevronDown,
   faChevronUp,
-  faChevronLeft
+  faChevronLeft,
+  faMagnifyingGlass
 } from '@fortawesome/free-solid-svg-icons'
 import '@/styles/base.scss'
 
@@ -31,7 +32,8 @@ library.add(
   faCreditCard,
   faChevronDown,
   faChevronUp,
-  faChevronLeft
+  faChevronLeft,
+  faMagnifyingGlass
 )
 
 app.use(router)

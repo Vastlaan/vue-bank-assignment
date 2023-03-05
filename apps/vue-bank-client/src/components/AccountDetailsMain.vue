@@ -7,7 +7,7 @@ import LoadingSpinner from './designSystem/LoadingSpinner.vue'
 import ErrorMessage from './designSystem/ErrorMessage.vue'
 import AccountDetailsInfo from './AccountDetailsInfo.vue'
 import AccountDetailsInfoExpanded from './AccountDetailsInfoExpanded.vue'
-import HeadingNormalVue from './designSystem/HeadingNormal.vue'
+import HeadingNormal from './designSystem/HeadingNormal.vue'
 import capitalizeFirstLetter from '@/utils/capitalizeFirstLetter'
 import AccountDetailsTransactions from './AccountDetailsTransactions.vue'
 
@@ -54,7 +54,7 @@ const accountExactInfo = computed(() => {
   <main class="accountDetails">
     <LoadingSpinner v-if="loading" />
     <ErrorMessage v-if="error" message="An error has occured. Please try again later" />
-    <HeadingNormalVue v-if="accountDetails" text="Account Details" />
+    <HeadingNormal v-if="accountDetails" text="Account Details" />
     <AccountDetailsInfo
       v-if="accountDetails && !isDetailOpen"
       :accountNumber="accountDetails.accountNumber"
@@ -70,6 +70,7 @@ const accountExactInfo = computed(() => {
       :hideDetails="hideDetails"
       :accountDetails="accountExactInfo"
     />
+    <HeadingNormal text="Transactions" />
     <AccountDetailsTransactions
       v-if="accountTransactions && accountDetails"
       :transactions="accountTransactions"
