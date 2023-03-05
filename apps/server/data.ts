@@ -96,7 +96,7 @@ export const transactions = [
       {
         transactionId: "193576407479242.040002",
         bookDate: "2020-12-30",
-        transactionDateTime: "2020 -1229T22:00:00Z",
+        transactionDateTime: "2020-12-29T22:00:00Z",
         creditDebitIndicator: "CREDIT",
         amount: 850.0,
         counterpartyAccountNumber: "NL53INGB6653222179",
