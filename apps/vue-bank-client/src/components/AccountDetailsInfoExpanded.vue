@@ -23,11 +23,11 @@ const displayedBalance = getDisplayBalance({
 </script>
 <template>
   <section class="details">
-    <h3 class="details__iban" aria-label="account number">{{ accountNumber }}</h3>
-    <p class="details__balance" aria-label="account balance">{{ displayedBalance }}</p>
-    <div class="details__aggregated">
+    <h3 class="iban" aria-label="account number">{{ accountNumber }}</h3>
+    <p class="balance" aria-label="account balance">{{ displayedBalance }}</p>
+    <div class="aggregated">
       <div v-for="(item, index) of accountDetails" :key="index">
-        <div class="details__aggregated--item" v-if="item">
+        <div class="item" v-if="item">
           <label>{{ item?.label }}: </label>
           <p>{{ item?.value }}</p>
         </div>
@@ -60,32 +60,30 @@ const displayedBalance = getDisplayBalance({
       'details details details details'
       'buttons buttons buttons buttons';
   }
+}
+.iban {
+  grid-area: iban;
+  @include accountBoldFont;
+}
+.balance {
+  grid-area: balance;
+  justify-self: end;
+  color: $color-primary-dark;
+  @include accountBoldFont;
+}
+.aggregated {
+  grid-area: details;
+  display: flex;
+  flex-direction: column;
+}
+.item {
+  display: flex;
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
 
-  &__iban {
-    grid-area: iban;
-    @include accountBoldFont;
-  }
-  &__balance {
-    grid-area: balance;
-    justify-self: end;
-    color: $color-primary-dark;
-    @include accountBoldFont;
-  }
-  &__aggregated {
-    grid-area: details;
-    display: flex;
-    flex-direction: column;
-
-    &--item {
-      display: flex;
-      font-size: 1.4rem;
-      margin: 0.5rem 0;
-
-      label {
-        font-weight: 500;
-        margin-right: 0.8rem;
-      }
-    }
+  label {
+    font-weight: 500;
+    margin-right: 0.8rem;
   }
 }
 </style>

@@ -19,8 +19,8 @@ const displayedBalance = getDisplayBalance({
 
 <template>
   <section class="account">
-    <h3 class="account__iban" aria-label="account number">{{ accountNumber }}</h3>
-    <p class="account__balance" aria-label="account balance">{{ displayedBalance }}</p>
+    <h3 class="iban" aria-label="account number">{{ accountNumber }}</h3>
+    <p class="balance" aria-label="account balance">{{ displayedBalance }}</p>
     <OverviewContentAccountButtons
       icon="fa-chevron-down"
       :action="showDetails"
@@ -54,16 +54,16 @@ const displayedBalance = getDisplayBalance({
       'iban iban iban balance'
       'buttons buttons buttons buttons';
   }
+}
+.iban {
+  grid-area: iban;
+  @include accountBoldFont;
+}
 
-  &__iban {
-    grid-area: iban;
-    @include accountBoldFont;
-  }
-  &__balance {
-    grid-area: balance;
-    justify-self: end;
-    color: $color-primary-dark;
-    @include accountBoldFont;
-  }
+.balance {
+  grid-area: balance;
+  justify-self: end;
+  color: $color-primary-dark;
+  @include accountBoldFont;
 }
 </style>
