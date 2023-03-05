@@ -1,4 +1,5 @@
 <script lang="ts">
+import TextNormal from './designSystem/TextNormal.vue'
 import getDisplayBalance from '@/utils/getDisplayBalance'
 import OverviewContentAccountButtons from './AccountDetailsButtons.vue'
 interface AccountDetailsInfoProps {
@@ -19,8 +20,17 @@ const displayedBalance = getDisplayBalance({
 
 <template>
   <section class="account">
-    <h3 class="iban" aria-label="account number">{{ accountNumber }}</h3>
-    <p class="balance" aria-label="account balance">{{ displayedBalance }}</p>
+    <div class="iban">
+      <TextNormal aria-label="account number" :text="accountNumber" isBold />
+    </div>
+    <div class="balance">
+      <TextNormal
+        aria-label="account balance"
+        :text="displayedBalance"
+        color="primaryDark"
+        isBold
+      />
+    </div>
     <OverviewContentAccountButtons
       icon="fa-chevron-down"
       :action="showDetails"
@@ -57,13 +67,10 @@ const displayedBalance = getDisplayBalance({
 }
 .iban {
   grid-area: iban;
-  @include accountBoldFont;
 }
 
 .balance {
   grid-area: balance;
   justify-self: end;
-  color: $color-primary-dark;
-  @include accountBoldFont;
 }
 </style>

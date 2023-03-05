@@ -38,3 +38,8 @@ export interface AccountAttributes {
   accountDetails: Account
   accountTransactions: Transaction[]
 }
+
+export interface AccountDetailsItem {
+  label: string
+  value: string | number | undefined
+}

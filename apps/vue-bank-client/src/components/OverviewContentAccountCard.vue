@@ -1,4 +1,5 @@
 <script lang="ts">
+import TextNormal from './designSystem/TextNormal.vue'
 interface AccountCardProps {
   accountNumber: string
   displayedBalance: string
@@ -12,9 +13,11 @@ defineProps<AccountCardProps>()
 
 <template>
   <div class="account">
-    <p class="iban" aria-label="account number">{{ accountNumber }}</p>
-    <p class="balance" aria-label="account balance">{{ displayedBalance }}</p>
-    <p class="owner">{{ owner }}</p>
+    <TextNormal aria-label="account number" :text="accountNumber" isBold />
+    <TextNormal aria-label="account balance" :text="displayedBalance" color="primaryDark" isBold />
+    <div class="owner">
+      <TextNormal aria-label="account owner" :text="owner" />
+    </div>
   </div>
 </template>
 
@@ -25,19 +28,8 @@ defineProps<AccountCardProps>()
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.balance {
-  color: $color-primary-dark;
-  font-size: 1.8rem;
-  @include accountBoldFont;
-}
-.iban {
-  font-size: 1.8rem;
-  @include accountBoldFont;
-}
 .owner {
   margin-top: 1.6rem;
   width: 100%;
-  font-size: 1.6rem;
-  flex-grow: 1;
 }
 </style>

@@ -1,10 +1,10 @@
 <script lang="ts">
+import TextNormal from './designSystem/TextNormal.vue'
 import getDisplayBalance from '@/utils/getDisplayBalance'
 import OverviewContentAccountButtons from './AccountDetailsButtons.vue'
-interface AccountDetailsItem {
-  label: string
-  value: string | number | undefined
-}
+import AccountDetailsInfoExpandedItem from './AccountDetailsInfoExpandedItem.vue'
+import type { AccountDetailsItem } from '@/types'
+
 interface AccountDetailsInfoExpendedProps {
   accountNumber: string
   balance?: number
@@ -23,15 +23,23 @@ const displayedBalance = getDisplayBalance({
 </script>
 <template>
   <section class="details">
-    <h3 class="iban" aria-label="account number">{{ accountNumber }}</h3>
-    <p class="balance" aria-label="account balance">{{ displayedBalance }}</p>
+    <div class="iban">
+      <TextNormal aria-label="account number" :text="accountNumber" isBold />
+    </div>
+    <div class="balance">
+      <TextNormal
+        aria-label="account balance"
+        :text="displayedBalance"
+        color="primaryDark"
+        isBold
+      />
+    </div>
     <div class="aggregated">
-      <div v-for="(item, index) of accountDetails" :key="index">
-        <div class="item" v-if="item">
-          <label>{{ item?.label }}: </label>
-          <p>{{ item?.value }}</p>
-        </div>
-      </div>
+      <ul v-for="(item, index) of accountDetails" :key="index">
+        <li>
+          <AccountDetailsInfoExpandedItem :item="item" v-if="item" />
+        </li>
+      </ul>
     </div>
     <OverviewContentAccountButtons
       icon="fa-chevron-up"
@@ -63,27 +71,19 @@ const displayedBalance = getDisplayBalance({
 }
 .iban {
   grid-area: iban;
-  @include accountBoldFont;
 }
 .balance {
   grid-area: balance;
   justify-self: end;
-  color: $color-primary-dark;
-  @include accountBoldFont;
 }
 .aggregated {
   grid-area: details;
   display: flex;
   flex-direction: column;
-}
-.item {
-  display: flex;
-  font-size: 1.4rem;
-  margin: 0.5rem 0;
 
-  label {
-    font-weight: 500;
-    margin-right: 0.8rem;
+  ul {
+    list-style: none;
+    padding: 0;
   }
 }
 </style>
