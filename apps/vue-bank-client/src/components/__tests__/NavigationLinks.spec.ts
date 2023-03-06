@@ -32,7 +32,7 @@ describe('NavigationLinks', () => {
   it('properly navigates to settings', async () => {
     const push = vi.spyOn(router, 'push')
     const wrapper = getWrapper()
-    const settings = (await findByText(wrapper, 'a', 'Settings')) as DOMWrapper<HTMLAnchorElement>
+    const settings = findByText(wrapper, 'a', 'Settings') as DOMWrapper<HTMLAnchorElement>
     settings.trigger('click')
     expect(push).toHaveBeenCalledWith('/settings')
   })

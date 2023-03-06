@@ -35,11 +35,7 @@ describe('HeadingLarge', () => {
     const wrapper = getWrapper()
     expect(wrapper.text()).toContain('Some header line')
 
-    const anchor = (await findByText(
-      wrapper,
-      'a',
-      'Go to accounts'
-    )) as DOMWrapper<HTMLAnchorElement>
+    const anchor = findByText(wrapper, 'a', 'Go to accounts') as DOMWrapper<HTMLAnchorElement>
     anchor.trigger('click')
     expect(push).toHaveBeenCalledWith('/accounts')
   })
@@ -56,11 +52,7 @@ describe('HeadingLarge', () => {
     const wrapper = getWrapper(mockProps)
     expect(wrapper.text()).toContain('yet another text')
 
-    const button = (await findByText(
-      wrapper,
-      'button',
-      'ButtonTitle'
-    )) as DOMWrapper<HTMLAnchorElement>
+    const button = findByText(wrapper, 'button', 'ButtonTitle') as DOMWrapper<HTMLAnchorElement>
     button.trigger('click')
     expect(callback).toHaveBeenCalledTimes(1)
   })

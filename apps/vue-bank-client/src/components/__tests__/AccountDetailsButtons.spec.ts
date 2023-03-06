@@ -22,11 +22,7 @@ describe('AccountDetailsButtons', () => {
   it('renders properly and calls the action when clicked', async () => {
     const wrapper = getWrapper()
 
-    const button = (await findByText(
-      wrapper,
-      'button',
-      'Some title'
-    )) as DOMWrapper<HTMLButtonElement>
+    const button = findByText(wrapper, 'button', 'Some title') as DOMWrapper<HTMLButtonElement>
     button.trigger('click')
     expect(mockAction).toHaveBeenCalledOnce()
   })

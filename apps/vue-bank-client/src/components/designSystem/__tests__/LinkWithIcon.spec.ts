@@ -65,7 +65,7 @@ describe('LinkWithIcon', () => {
       icon: 'fa-home',
       applyActiveClass: true
     })
-    const settings = (await findByText(wrapper, 'a', 'Settings')) as DOMWrapper<HTMLAnchorElement>
+    const settings = findByText(wrapper, 'a', 'Settings') as DOMWrapper<HTMLAnchorElement>
     settings.trigger('click')
     expect(push).toHaveBeenCalledWith('/settings')
   })

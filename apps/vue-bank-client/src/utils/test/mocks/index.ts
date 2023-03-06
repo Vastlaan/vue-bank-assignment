@@ -1,6 +1,6 @@
-import type { Transaction } from '@/types'
+import type { Account, Transaction } from '@/types'
 
-export const mockAccountDetails = {
+export const mockAccountDetails: Account = {
   accountNumberType: 'IBAN',
   accountNumber: 'NL18ABNA5476393838',
   productName: 'Current Account',

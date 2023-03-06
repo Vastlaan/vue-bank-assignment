@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { DOMWrapper, mount } from '@vue/test-utils'
-import HomeHeader from '../HomeHeader.vue'
+import ContactHeader from '../ContactHeader.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from '@/router'
 import findByText from '@/utils/test/findByText'
@@ -10,12 +10,12 @@ const router = createRouter({
 })
 
 const getWrapper = () =>
-  mount(HomeHeader, {
+  mount(ContactHeader, {
     global: {
       plugins: [router]
     }
   })
-describe('HomeHeader', () => {
+describe('ContactHeader', () => {
   beforeEach(async () => {
     router.push('/')
     await router.isReady()
@@ -24,10 +24,8 @@ describe('HomeHeader', () => {
   it('renders properly and navigates to /account', async () => {
     const push = vi.spyOn(router, 'push')
     const wrapper = getWrapper()
-    expect(wrapper.text()).toContain('Enter the world of Internet Banking with ABN AMRO')
-    expect(wrapper.text()).toContain(
-      'Did you know that you can do a lot of your banking yourself online? No need to leave your home. Log in to your accounts here.'
-    )
+    expect(wrapper.text()).toContain('Service and contact')
+    expect(wrapper.text()).toContain('Check out your saldo. Log in to your accounts here.')
     expect(wrapper.text()).toContain('Manage accounts')
 
     const anchor = findByText(wrapper, 'a', 'Manage accounts') as DOMWrapper<HTMLAnchorElement>

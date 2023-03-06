@@ -33,11 +33,11 @@ describe('RouterNavigation', () => {
     const push = vi.spyOn(router, 'push')
     const wrapper = getWrapper()
     expect(wrapper.text()).toContain('Go back to Accounts Overview')
-    const link = (await findByText(
+    const link = findByText(
       wrapper,
       'a',
       'Go back to Accounts Overview'
-    )) as DOMWrapper<HTMLAnchorElement>
+    ) as DOMWrapper<HTMLAnchorElement>
     link.trigger('click')
     expect(push).toHaveBeenCalledWith('/accounts')
   })

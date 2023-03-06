@@ -1,7 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ContactHeader from '@/components/ContactHeader.vue'
+</script>
 
 <template>
   <main>
-    <h1>Contact Page</h1>
+    <ContactHeader />
   </main>
 </template>

@@ -23,11 +23,7 @@ describe('HeadingLarge', () => {
     const wrapper = getWrapper()
     expect(wrapper.text()).toBe('Toggle me')
 
-    const button = (await findByText(
-      wrapper,
-      'button',
-      'Toggle me'
-    )) as DOMWrapper<HTMLButtonElement>
+    const button = findByText(wrapper, 'button', 'Toggle me') as DOMWrapper<HTMLButtonElement>
 
     button.trigger('click')
     expect(mockAction).toHaveBeenCalledOnce()

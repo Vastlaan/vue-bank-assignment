@@ -4,7 +4,6 @@ import AccountDetailsTransaction from '../AccountDetailsTransaction.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from '@/router'
 import { mockTransaction } from '@/utils/test/mocks'
-import { nextTick } from 'vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -31,7 +30,7 @@ describe('AccountDetailsTransaction', () => {
     const el = document.createElement('div')
     el.id = 'app'
     document.body.appendChild(el)
-    router.push('/accounts/?accountNumber=NL18ABNA5476393838')
+    router.push('/accounts')
     await router.isReady()
   })
 
@@ -46,18 +45,5 @@ describe('AccountDetailsTransaction', () => {
     expect(wrapper.text()).toContain('€ + 850.00')
   })
 
-  it('properly opens modal', async () => {
-    const wrapper = getWrapper()
-
-    expect(wrapper.find({ ref: 'isModalOpen' }).exists()).toBe(false)
-
-    const buttonDiv = wrapper.find('div[role="button"]') as DOMWrapper<HTMLDivElement>
-    buttonDiv.trigger('click')
-
-    // TODO: figure out why click is not updating ref
-
-    // await nextTick()
-
-    // expect(wrapper.find({ ref: 'isModalOpen' }).exists()).toBe(true)
-  })
+  it.todo('properly opens modal', async () => {})
 })

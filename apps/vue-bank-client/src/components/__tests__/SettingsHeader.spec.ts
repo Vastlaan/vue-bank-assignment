@@ -28,11 +28,7 @@ describe('SettingsHeader', () => {
     expect(wrapper.text()).toContain('Check out your saldo. Log in to your accounts here.')
     expect(wrapper.text()).toContain('Manage accounts')
 
-    const anchor = (await findByText(
-      wrapper,
-      'a',
-      'Manage accounts'
-    )) as DOMWrapper<HTMLAnchorElement>
+    const anchor = findByText(wrapper, 'a', 'Manage accounts') as DOMWrapper<HTMLAnchorElement>
     anchor.trigger('click')
     expect(push).toHaveBeenCalledWith('/accounts')
   })

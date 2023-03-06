@@ -29,11 +29,11 @@ describe('AccountDetailsInfoExpanded', () => {
     expect(wrapper.text()).toContain('Saturday: 1000')
     expect(wrapper.text()).toContain('Hide Account Details')
 
-    const button = (await findByText(
+    const button = findByText(
       wrapper,
       'button',
       'Hide Account Details'
-    )) as DOMWrapper<HTMLButtonElement>
+    ) as DOMWrapper<HTMLButtonElement>
     button.trigger('click')
     expect(mockAction).toHaveBeenCalledOnce()
   })
