@@ -8,7 +8,10 @@ const defaultProps: { message: string } = {
 
 const getWrapper = () =>
   mount(ErrorMessageVue, {
-    props: defaultProps
+    props: defaultProps,
+    global: {
+      stubs: ['FontAwesomeIcon']
+    }
   })
 
 describe('ErrorMessage', () => {

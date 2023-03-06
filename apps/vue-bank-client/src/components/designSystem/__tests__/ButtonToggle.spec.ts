@@ -13,7 +13,10 @@ const defaultProps: ButtonToggleProps = {
 
 const getWrapper = () =>
   mount(ButtonToggle, {
-    props: defaultProps
+    props: defaultProps,
+    global: {
+      stubs: ['FontAwesomeIcon']
+    }
   })
 describe('HeadingLarge', () => {
   it('properly display and call the action', async () => {

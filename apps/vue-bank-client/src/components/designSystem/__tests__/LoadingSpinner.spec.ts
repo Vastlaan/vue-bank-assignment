@@ -4,7 +4,11 @@ import LoadingSpinner from '../LoadingSpinner.vue'
 
 describe('ErrorMessage', () => {
   it('properly displays', async () => {
-    const wrapper = mount(LoadingSpinner)
+    const wrapper = mount(LoadingSpinner, {
+      global: {
+        stubs: ['FontAwesomeIcon']
+      }
+    })
     expect(wrapper.text()).toBe('Please wait ...')
     expect(wrapper.find('[data-testid="icon"]')).toBeTruthy()
   })

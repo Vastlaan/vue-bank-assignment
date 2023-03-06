@@ -1,29 +1,18 @@
-import { describe, it, expect, vi, type Mock, beforeEach } from 'vitest'
+import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import AccountDetailsMain from '../AccountDetailsMain.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from '@/router'
-import { flushPromises } from '@vue/test-utils'
-import { nextTick } from 'vue'
-import { mockAccountDetails, mockTransaction } from '@/utils/test/mocks'
+import * as useAccountDetailsApi from '@/composables/useAccountDetailsApi'
+import { computed, ref } from 'vue'
+import { mockAccountDetails } from '@/utils/test/mocks'
 
-const mockFetch = (global.fetch = vi.fn() as Mock)
-
-function fetchResponseSuccess() {
-  return {
-    json: () =>
-      new Promise((resolve) =>
-        resolve({
-          data: { accountDetails: mockAccountDetails, accountTransactions: [mockTransaction] }
-        })
-      ),
-    ok: true
-  }
-}
 const router = createRouter({
   history: createWebHistory(),
   routes: routes
 })
+
+vi.mock('@/composables/useAccountDetailsApi')
 
 const getWrapper = () =>
   mount(AccountDetailsMain, {
@@ -36,21 +25,51 @@ describe('AccountDetailsMain', () => {
   beforeEach(async () => {
     router.push('/accounts/?accountNumber=NL18ABNA5476393838')
     await router.isReady()
-    mockFetch.mockResolvedValue(fetchResponseSuccess())
   })
 
-  it('renders properlyt', async () => {
+  it('renders properly loading state', async () => {
+    vi.spyOn(useAccountDetailsApi, 'default').mockReturnValue({
+      loading: ref(true),
+      error: ref(null),
+      accountTransactions: computed(() => []),
+      accountDetails: computed(() => undefined),
+      accountExactInfo: computed(() => [])
+    })
+
     const wrapper = getWrapper()
 
     expect(wrapper.text()).toContain('Transactions')
     expect(wrapper.text()).toContain('Please wait ...')
+  })
 
-    await flushPromises()
-    await nextTick()
-    await nextTick()
-    await nextTick()
+  it('renders properly error state', async () => {
+    vi.spyOn(useAccountDetailsApi, 'default').mockReturnValue({
+      loading: ref(false),
+      error: ref('An error'),
+      accountTransactions: computed(() => []),
+      accountDetails: computed(() => undefined),
+      accountExactInfo: computed(() => [])
+    })
 
+    const wrapper = getWrapper()
+
+    expect(wrapper.text()).toContain('Transactions')
+    expect(wrapper.text()).toContain('An error has occured. Please try again later')
+  })
+
+  it('renders properly account details state', async () => {
+    vi.spyOn(useAccountDetailsApi, 'default').mockReturnValue({
+      loading: ref(false),
+      error: ref(null),
+      accountTransactions: computed(() => []),
+      accountDetails: computed(() => mockAccountDetails),
+      accountExactInfo: computed(() => [])
+    })
+
+    const wrapper = getWrapper()
+
+    expect(wrapper.text()).toContain('Account Details')
     expect(wrapper.text()).toContain('NL18ABNA5476393838')
-    expect(wrapper.text()).toContain(850)
+    expect(wrapper.text()).toContain('€ 7500.39')
   })
 })

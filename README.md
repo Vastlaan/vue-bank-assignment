@@ -27,9 +27,9 @@
 
 `pnpm install`
 
-3. To run app in development mode:
+3. To run app (both client and server) in development mode:
 
-`pnpm run app:dev`
+`pnpm run dev`
 
 4. To run unit tests for client:
 

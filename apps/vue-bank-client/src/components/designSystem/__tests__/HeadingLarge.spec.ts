@@ -9,7 +9,10 @@ const defaultProps: HeadingProps = {
 
 const getWrapper = (mockProps?: HeadingProps) =>
   mount(HeadingLarge, {
-    props: mockProps || defaultProps
+    props: mockProps || defaultProps,
+    global: {
+      stubs: ['FontAwesomeIcon']
+    }
   })
 describe('HeadingLarge', () => {
   it('renders properly', () => {
