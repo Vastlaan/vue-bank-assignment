@@ -11,12 +11,12 @@ defineProps<AccountGroupsProps>()
 </script>
 
 <template>
-  <section aria-label="account groups overview">
+  <main aria-label="account groups overview">
     <div class="accountGroup" v-for="accountGroup of accountGroups" :key="accountGroup.groupId">
       <HeadingNormal :text="accountGroup?.groupName" />
       <OverviewContentAccounts v-if="accountGroup?.accounts" :accounts="accountGroup?.accounts" />
     </div>
-  </section>
+  </main>
 </template>
 
 <style scoped lang="scss">

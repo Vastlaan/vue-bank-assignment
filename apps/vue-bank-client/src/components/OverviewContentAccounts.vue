@@ -11,7 +11,7 @@ defineProps<AccountsProps>()
 </script>
 
 <template>
-  <ul>
+  <ul class="accountGroupsList">
     <li v-for="account of accounts" :key="account.accountNumber">
       <OverviewAccount :account="account" />
     </li>
@@ -19,10 +19,8 @@ defineProps<AccountsProps>()
 </template>
 
 <style scoped lang="scss">
-section {
-  ul {
-    list-style: none;
-    padding: 0;
-  }
+.accountGroupsList {
+  list-style: none;
+  padding: 0;
 }
 </style>

@@ -7,13 +7,18 @@
   font-weight: normal;
 }
 
-html{
+html {
   font-size: 75%; // 1rem = 12px
   color: $color-text;
   background-color: $color-bg;
   font-family: $font-primary;
 
-  @include respond('l'){
+  @include respond("l") {
     font-size: 62.5%; // 1rem = 10px
   }
+}
+
+main {
+  max-width: 1444px;
+  margin: 0 auto;
 }

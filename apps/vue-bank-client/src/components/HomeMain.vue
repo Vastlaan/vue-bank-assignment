@@ -8,7 +8,7 @@ const action = computed(() => ({ url: '/accounts' }))
 </script>
 
 <template>
-  <div class="banner">
+  <main class="banner">
     <div class="image">
       <img src="@/assets/images/abn_amro_image_1.jpg" alt="happy family" />
     </div>
@@ -17,13 +17,13 @@ const action = computed(() => ({ url: '/accounts' }))
       <TextNormal text="No need to leave your home. Find out what your options are." />
       <ButtonSecondary title="Accounts" :action="action" />
     </div>
-  </div>
+  </main>
 </template>
 
 <style lang="scss">
 .banner {
   display: flex;
-  margin: 4.7rem;
+  margin: 4.7rem auto;
   justify-content: space-between;
 
   @include respond('m') {
