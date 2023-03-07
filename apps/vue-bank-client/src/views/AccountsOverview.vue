@@ -5,9 +5,11 @@ import RouterNavigation from '@/components/RouterNavigation.vue'
 </script>
 
 <template>
-  <OverviewHeader />
-  <RouterNavigation url="/" name="Go back to Home" />
-  <OverviewContent />
+  <div>
+    <OverviewHeader />
+    <RouterNavigation url="/" name="Go back to Home" />
+    <OverviewContent />
+  </div>
 </template>
 
 <style lang="scss"></style>

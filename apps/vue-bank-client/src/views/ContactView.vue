@@ -3,7 +3,7 @@ import ContactHeader from '@/components/ContactHeader.vue'
 </script>
 
 <template>
-  <main>
+  <div>
     <ContactHeader />
-  </main>
+  </div>
 </template>

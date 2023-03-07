@@ -22,5 +22,10 @@ defineProps<{ message: string }>()
     color: $color-error;
     margin-bottom: 1.4rem;
   }
+  p {
+    @include respond('s') {
+      text-align: center;
+    }
+  }
 }
 </style>

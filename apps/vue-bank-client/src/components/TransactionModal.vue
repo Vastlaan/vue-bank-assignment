@@ -25,7 +25,7 @@ const dateTime = getDateFromTimeString(props.transaction.transactionDateTime)
           Back
         </button>
       </div>
-      <div class="main">
+      <div class="mainModal">
         <TextNormal :text="transaction.counterpartyName" />
         <HeadingLarge :text="amountDisplay" :color="isAmountPositive ? 'primary' : 'primaryDark'" />
       </div>
@@ -71,7 +71,7 @@ const dateTime = getDateFromTimeString(props.transaction.transactionDateTime)
     color: $color-primary-dark;
   }
 }
-.main {
+.mainModal {
   padding: 2.7rem 0;
   display: flex;
   flex-direction: column;

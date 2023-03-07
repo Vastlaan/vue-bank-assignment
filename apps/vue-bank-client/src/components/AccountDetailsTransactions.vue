@@ -5,6 +5,7 @@ import { optionsBasic } from '@/utils/getDateFromTimeString'
 import HeadingSmall from './designSystem/HeadingSmall.vue'
 import SearchboxPure from './designSystem/SearchboxPure.vue'
 import useTransactions from '@/composables/useTransactions'
+import ErrorMessage from './designSystem/ErrorMessage.vue'
 interface TransactionsProps {
   transactions: Transaction[]
   currencyCode: string
@@ -29,19 +30,24 @@ const { theFilter, groupedTransactions, groupedTransactionsKeys } = useTransacti
       />
       <font-awesome-icon class="searchIcon" icon="fa-magnifying-glass" data-testid="icon" />
     </SearchboxPure>
-    <div class="groupedTransactions" v-for="key in groupedTransactionsKeys" :key="key">
-      <div class="daySection">
-        <HeadingSmall
-          color="primary"
-          :text="new Date(key).toLocaleDateString('nl-NL', optionsBasic)"
+    <div v-if="groupedTransactionsKeys.length">
+      <div class="groupedTransactions" v-for="key in groupedTransactionsKeys" :key="key">
+        <div class="daySection">
+          <HeadingSmall
+            color="primary"
+            :text="new Date(key).toLocaleDateString('nl-NL', optionsBasic)"
+          />
+        </div>
+        <AccountDetailsTransaction
+          v-for="transaction in groupedTransactions[key]"
+          :key="transaction.transactionId"
+          :transaction="transaction"
+          :currencyCode="currencyCode"
         />
       </div>
-      <AccountDetailsTransaction
-        v-for="transaction in groupedTransactions[key]"
-        :key="transaction.transactionId"
-        :transaction="transaction"
-        :currencyCode="currencyCode"
-      />
+    </div>
+    <div v-else>
+      <ErrorMessage message="We couldn't find any transactions matching your search" />
     </div>
   </section>
 </template>
@@ -53,7 +59,10 @@ const { theFilter, groupedTransactions, groupedTransactionsKeys } = useTransacti
 }
 .groupedTransactions {
   margin: 1.6rem 0;
-  border-bottom: 1px solid $color-primary;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid $color-primary;
+  }
 }
 .daySection {
   margin-left: 1.6rem;

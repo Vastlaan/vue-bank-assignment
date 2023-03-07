@@ -17,7 +17,7 @@ defineProps<HeaderPrimaryProps>()
 
 <template>
   <header>
-    <div class="main">
+    <div class="mainHeader">
       <HeadingLarge :text="title" color="white" />
       <TextNormal color="white" :text="description" />
     </div>
@@ -38,7 +38,7 @@ header {
     flex-direction: column;
   }
 }
-.main {
+.mainHeader {
   display: flex;
   flex-direction: column;
   margin-bottom: 2.7rem;

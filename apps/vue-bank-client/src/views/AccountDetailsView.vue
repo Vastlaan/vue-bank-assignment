@@ -5,9 +5,11 @@ import AccountDetailsMain from '@/components/AccountDetailsMain.vue'
 </script>
 
 <template>
-  <OverviewHeader />
-  <RouterNavigation url="/accounts" name="Go back to Accounts Overview" />
-  <AccountDetailsMain />
+  <div>
+    <OverviewHeader />
+    <RouterNavigation url="/accounts" name="Go back to Accounts Overview" />
+    <AccountDetailsMain />
+  </div>
 </template>
 
 <style lang="scss"></style>
